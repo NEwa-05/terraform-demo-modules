@@ -1,18 +1,18 @@
-provider "helm" {
-  kubernetes = {
-    host                    = local.cluster_server
-    cluster_ca_certificate  = local.cluster_ca_cert
-    token                   = local.token
-  }
-}
+# provider "helm" {
+#   kubernetes = {
+#     host                    = local.cluster_server
+#     cluster_ca_certificate  = local.cluster_ca_cert
+#     token                   = local.token
+#   }
+# }
 
-resource "helm_release" "metrics_server" {
-  name       = "metrics-server"
-  repository = "https://kubernetes-sigs.github.io/metrics-server/"
-  chart      = "metrics-server"
-  version    = "3.12.2"
+# resource "helm_release" "metrics_server" {
+#   name       = "metrics-server"
+#   repository = "https://kubernetes-sigs.github.io/metrics-server/"
+#   chart      = "metrics-server"
+#   version    = "3.12.2"
 
-  namespace  = "kube-system"
+#   namespace  = "kube-system"
 
-  depends_on = [oci_containerengine_node_pool.traefik_demo]
-}
+#   depends_on = [oci_containerengine_node_pool.traefik_demo]
+# }
